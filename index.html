@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     
     
@@ -10,24 +9,38 @@
 </head>
 <body>
     <div id="promptThisFun">
+        <p>Welcome (or welcome back) to this interactive theatre themed comic! To read the next page, you need to memorize a line or a phrase like this one!
+
+        </p>
+         <h2 id="theLine"></h2>
+  <button onclick="nextItFun()">I memorized it!</button>
 
 </div>
 <div id = "page1" style = "display:none ;">
-    
+    <img src="horsepenguin.png">
+     <button onclick="showVtest()">Continue</button>
+
 </div>
 <div id = "page2" style = "display:none ;">
-    
+     <img src="pen.png">
+      <button onclick="showVtest()">Continue</button>
 </div>
 <div id = "page3" style = "display:none ;">
-    
+     <img src="happynow.png">
+      <button onclick="showVtest()">Continue</button>
 </div>
 <div id = "Testpage" style = "display:none ;">
-    
+     <h2>What was the line that you most recently memorized?</h2>
+
+    <input id="guess">
+
+    <button onclick="checkAnswer()">Submit</button>
 </div>
     <script>
         let prompts = [
-            "Penguin's dream",
-            "This is something to memorize",
+            "A Penguin's dream",
+            "Auditions are tough, but always worth it!",
+            "My dream is to hit the stage, is it yours?"
 
 
         ];
@@ -38,25 +51,26 @@
     "page3"
 ];
 let current = 0;
-function showPrompt() {
-    document.getElementById("promptText").textContent = prompts[current];
+function showVPrompt() {
+    document.getElementById("theLine").textContent = prompts[current];
 
+    document.getElementById("promptThisFun").style.display = "block";
 
       document.getElementById("page1").style.display = "none";
     document.getElementById("page2").style.display = "none";
     document.getElementById("page3").style.display = "none";
-       document.getElementById("testPage").style.display = "none";
+       document.getElementById("Testpage").style.display = "none";
 
 }
 ;
 
 function nextItFun() {
-    document.getElementById("promptPage").style.display = "none";
+    document.getElementById("promptThisFun").style.display = "none";
     document.getElementById(pages[current]).style.display = "block";
 }
 function showVtest() {
     document.getElementById(pages[current]).style.display = "none";
-    document.getElementById("testPage").style.display = "block";
+    document.getElementById("Testpage").style.display = "block";
 }
 
 
@@ -67,9 +81,21 @@ function showVtest() {
 function checkAnswer() {
     let guess = document.getElementById("guess").value.trim();
 
-    if (guess.toLowerCase() === prompts[current].toLowerCase()) {
+    if (guess.toLowerCase() === prompts[current].toLowerCase()) 
+    {
+         current++;
+
+        if (current < prompts.length) {
+            showVPrompt();
+        } else {
+            alert("You got it!")
+        }
+            } else {
+        alert("Wrong! Try again.");
     }
-    
+    };
+    showVPrompt();
+
     </script>
 </body>
 </html>
