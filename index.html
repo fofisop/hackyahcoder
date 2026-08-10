@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    
+    <title>The penguin's dream</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="promptThisFun">
+
+</div>
+<div id = "page1" style = "display:none ;">
+    
+</div>
+<div id = "page2" style = "display:none ;">
+    
+</div>
+<div id = "page3" style = "display:none ;">
+    
+</div>
+<div id = "Testpage" style = "display:none ;">
+    
+</div>
+    <script>
+        let prompts = [
+            "Penguin's dream",
+            "This is something to memorize",
+
+
+        ];
+
+        let pages = [
+    "page1",
+    "page2",
+    "page3"
+];
+let current = 0;
+function showPrompt() {
+    document.getElementById("promptText").textContent = prompts[current];
+
+
+      document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "none";
+    document.getElementById("page3").style.display = "none";
+       document.getElementById("testPage").style.display = "none";
+
+}
+;
+
+function nextItFun() {
+    document.getElementById("promptPage").style.display = "none";
+    document.getElementById(pages[current]).style.display = "block";
+}
+function showVtest() {
+    document.getElementById(pages[current]).style.display = "none";
+    document.getElementById("testPage").style.display = "block";
+}
+
+
+
+
+
+
+function checkAnswer() {
+    let guess = document.getElementById("guess").value.trim();
+
+    if (guess.toLowerCase() === prompts[current].toLowerCase()) {
+    }
+    
+    </script>
+</body>
+</html>
