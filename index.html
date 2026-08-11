@@ -4,11 +4,43 @@
     
     <title>The penguin's dream</title>
     <style>
+button {
+    background-color: #9dd9f3;
+    color:            #1f4e63;
+    border: 2px solid #6bbbdc;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+button:hover {
+    background-color: #bce8f7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(80, 150, 180, 0.25);
+}
+#promptThisFun {
+    background-color: white;
+     padding: 30px;
+      margin: 80px auto;
+    border-radius: 20px;
+     box-shadow: 0 5px 15px rgba(80, 150, 180, 0.25);
+}
+
+body{
+    background-color: #e6f7fc;
+
+     text-align: center;
+}
 
     </style>
 </head>
 <body>
+    
     <div id="promptThisFun">
+        <br> <br> <br> 
         <p>Welcome (or welcome back) to this interactive theatre themed comic! To read the next page, you need to memorize a line or a phrase like this one!
 
         </p>
@@ -31,6 +63,7 @@
 </div>
 <div id = "Testpage" style = "display:none ;">
      <h2>What was the line that you most recently memorized?</h2>
+     <p>Remember to include capitalization and punctuation.</p>
 
     <input id="guess">
 
@@ -88,7 +121,7 @@ function checkAnswer() {
         if (current < prompts.length) {
             showVPrompt();
         } else {
-            alert("You got it!")
+            alert("You win!")
         }
             } else {
         alert("Wrong! Try again.");
